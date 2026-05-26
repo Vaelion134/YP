@@ -38,7 +38,7 @@
                     VerticalAlignment="Center">
 
                     <ComboBox x:Name="RegionBox"
-          Width="250"
+          Width="288"
           SelectedIndex="0" BorderBrush="#FF2A2A2A" Background="#FF2A2A2A">
 
                         <ComboBoxItem Content="Новгородская область — Великий Новгород"/>
