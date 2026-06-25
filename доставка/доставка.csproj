@@ -56,17 +56,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CartItem.cs" />
-    <Compile Include="CartWindow.xaml.cs">
-      <DependentUpon>CartWindow.xaml</DependentUpon>
+    <Compile Include="CartPage.xaml.cs">
+      <DependentUpon>CartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuItem.cs" />
     <Compile Include="Restaurant.cs" />
-    <Page Include="CartWindow.xaml">
+    <Compile Include="User.cs" />
+    <Page Include="CartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -74,7 +76,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,6 +118,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\burger1.jpg" />
+    <Resource Include="Images\burger2.jpg" />
+    <Resource Include="Images\burger3.jpg" />
+    <Resource Include="Images\burger4.jpg" />
+    <Resource Include="Images\burger5.jpg" />
+    <Resource Include="Images\pizza1.jpg" />
+    <Resource Include="Images\pizza2.jpg" />
+    <Resource Include="Images\pizza3.jpg" />
+    <Resource Include="Images\pizza4.jpg" />
+    <Resource Include="Images\pizza5.jpg" />
+    <Resource Include="Images\sushi1.jpg" />
+    <Resource Include="Images\sushi2.jpg" />
+    <Resource Include="Images\sushi3.jpg" />
+    <Resource Include="Images\sushi4.jpg" />
+    <Resource Include="Images\sushi5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

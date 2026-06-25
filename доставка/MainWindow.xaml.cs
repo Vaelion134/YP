@@ -15,17 +15,17 @@ using System.Windows.Shapes;
 
 namespace доставка
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-        public partial class MainWindow : Window
-        {
+    public partial class MainWindow : Window
+    {
+        public static User CurrentUser;
         public static List<CartItem> Cart = new List<CartItem>();
+
         public MainWindow()
         {
             InitializeComponent();
             MainFrame.Navigate(new HomePage());
         }
+
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new HomePage());
@@ -33,16 +33,12 @@ namespace доставка
 
         private void Cart_Click(object sender, RoutedEventArgs e)
         {
-            CartWindow w = new CartWindow();
-            w.ShowDialog();
+            MainFrame.Navigate(new CartPage());
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private void Auth_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow w = new LoginWindow();
-            w.ShowDialog();
+            MainFrame.Navigate(new LoginPage());
         }
-
-
     }
 }

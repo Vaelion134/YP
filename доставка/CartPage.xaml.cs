@@ -10,28 +10,41 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace доставка
 {
-    /// <summary>
-    /// Логика взаимодействия для CartWindow.xaml
-    /// </summary>
-    public partial class CartWindow : Window
+    public partial class CartPage : Page
     {
-        public CartWindow()
+        public CartPage()
         {
             InitializeComponent();
             LoadCart();
         }
+
         private void LoadCart()
         {
             CartList.Items.Clear();
 
+            decimal total = 0;
+
             foreach (var item in MainWindow.Cart)
             {
-                CartList.Items.Add($"{item.Name} x{item.Quantity}");
+                CartList.Items.Add($"{item.Name} x{item.Quantity} — {item.Price * item.Quantity} руб");
+                total += item.Price * item.Quantity;
             }
+
+            TotalText.Text = $"Итого: {total:0} руб";
+        }
+
+        private void RemoveSelected_Click(object sender, RoutedEventArgs e)
+        {
+            if (CartList.SelectedIndex == -1) return;
+
+            MainWindow.Cart.RemoveAt(CartList.SelectedIndex);
+
+            LoadCart();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
@@ -42,21 +55,28 @@ namespace доставка
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
+            if (MainWindow.CurrentUser == null)
+            {
+                MessageBox.Show("Сначала войдите");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(AddressBox.Text))
+            {
+                MessageBox.Show("Введите адрес доставки");
+                return;
+            }
+
             if (MainWindow.Cart.Count == 0)
             {
                 MessageBox.Show("Корзина пуста");
                 return;
             }
 
-            string summary = string.Join("\n",
-                MainWindow.Cart.Select(x => $"{x.Name} x{x.Quantity}"));
-
-            MessageBox.Show("Заказ оформлен!\n\n" + summary);
+            MessageBox.Show($"Заказ оформлен!\nАдрес: {AddressBox.Text}");
 
             MainWindow.Cart.Clear();
             LoadCart();
         }
     }
-    }
-
-
+}

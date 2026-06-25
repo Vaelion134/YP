@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:доставка"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="1250" Background="#121212"
-        WindowStartupLocation="CenterScreen">
+        Title="FoodGo" Height="750" Width="1200"
+        Background="#121212">
 
     <Grid>
 
@@ -16,83 +16,43 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#1E1E1E">
-
+        <Border Background="#1E1E1E">
             <Grid Margin="10">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
                 <TextBlock Text="FoodGo"
-                   Foreground="White"
-                   FontSize="20"
-                   FontWeight="Bold"
-                   VerticalAlignment="Center"/>
+                           Foreground="White"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
 
-                <StackPanel Grid.Column="1"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
 
-                    <ComboBox x:Name="RegionBox"
-          Width="288"
-          SelectedIndex="0" BorderBrush="#FF2A2A2A" Background="#FF2A2A2A">
+                    <Button Content="Главная" Width="90"
+                            Click="Home_Click"/>
 
-                        <ComboBoxItem Content="Новгородская область — Великий Новгород"/>
-                        <ComboBoxItem Content="Новгородская область — Боровичи"/>
-                        <ComboBoxItem Content="Новгородская область — Старая Русса"/>
-                        <ComboBoxItem Content="Новгородская область — Валдай"/>
-                        <ComboBoxItem Content="Новгородская область — Чудово"/>
+                    <Button Content="Корзина" Width="90"
+                            Click="Cart_Click"/>
 
-                        <Separator/>
-
-                        <ComboBoxItem Content="Москва"/>
-                        <ComboBoxItem Content="Санкт-Петербург"/>
-                        <ComboBoxItem Content="Казань"/>
-                        <ComboBoxItem Content="Нижний Новгород"/>
-                        <ComboBoxItem Content="Екатеринбург"/>
-                        <ComboBoxItem Content="Новосибирск"/>
-
-                    </ComboBox>
-
-                </StackPanel>
-
-                <StackPanel Grid.Column="2"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-
-                    <Button Content="Корзина"
-                    Width="100"
-                    Margin="5,0"
-                    Click="Cart_Click"/>
-
-                    <Button Content="Вход"
-                    Width="80"
-                    Margin="5,0"
-                    Click="Login_Click"/>
+                    <Button x:Name="AuthButton"
+                            Content="Войти"
+                            Width="90"
+                            Click="Auth_Click"/>
 
                 </StackPanel>
 
             </Grid>
-
         </Border>
 
-        <Grid Grid.Row="1">
-
-            <Frame x:Name="MainFrame"
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
                NavigationUIVisibility="Hidden"/>
 
-        </Grid>
-
         <Border Grid.Row="2" Background="#1E1E1E">
-            <TextBlock Text="© 2026 FoodGo - Все права защищены"
-                   Foreground="Gray"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="12"/>
+            <TextBlock Text="© FoodGo 2026"
+                       Foreground="Gray"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
         </Border>
 
     </Grid>
