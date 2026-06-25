@@ -43,8 +43,9 @@ namespace доставка
                 return;
             }
 
-            Button btn = sender as Button;
-            MenuItem item = btn.DataContext as MenuItem;
+            var item = (sender as FrameworkElement)?.DataContext as MenuItem;
+
+            if (item == null) return;
 
             var existing = MainWindow.Cart.FirstOrDefault(x => x.Name == item.Name);
 
